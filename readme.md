@@ -27,7 +27,6 @@ The terminal installs two standard IP cameras, 30 fps, to monitor the access poi
 	</tr>
 </table>
 
-
 ## Simple Motion Detection Data pipeline
 
 To begin this evaluation, a simplified typical use case will be described.
@@ -47,7 +46,7 @@ The workflow would look like this:
 We provide the code related to motion detection, so you can focus just in create the entire solution.
 The MotionDetector class to use to detect any motion is under '''src/motion-detection''' directory. This part of code is a total mock. But provides a generic and deterministic way to test. Please feel free to change on demand.
 
-Processing everything in a single main could be exhausting for the CPU and it could create a bottleneck.
+Processing everything in a single main could be exhausting for the CPU and a bottleneck might be created.
 As consequence, we will appreciate a concurrent approach.
 
 To test your solution, we provide several convenience files:
@@ -61,13 +60,11 @@ We are working a lot with docker compose and docker framework, as recommendation
 
 * Install Docker CE (follow [Installation Guide](https://docs.docker.com/engine/install/ubuntu/)).
 * Make sure about [post installation step for Docker](https://docs.docker.com/engine/install/linux-postinstall/).
-* Install docker-compose (follow [installation guide](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)).
-* Download video from [s3://allread-public-technical-evaluation/train-example.mp4](s3://allread-public-technical-evaluation/train-example.mp4)
-
+* Download video from S3. `make download-videos`
 
 ## Instructions
 
-* Fork this git project and make it yours to start. Create a user on github and fork this repository.
+* Fork this github project and make it yours to start. Create a user on github and fork this repository.
 * Write as much code as you consider while maintaining a homogeneous and consistent structure.
 * Create an infrastructure to build and launch the project and create a simple step by step guide to perform these actions.
 * We recommend to create a README file and write down anything related to the previous instruction and any other clarification as well.
@@ -75,14 +72,13 @@ We are working a lot with docker compose and docker framework, as recommendation
 * From the received email related to this evaluation, you have 7 days to approach and complete this test.
 * For any question, do not hesitate to contact [jesus.tejedor@allread.ai](mailto:jesus.tejedor@allread.ai). If you consider that you require a longer explanation
 we can set up a meeting to explain in detail this evaluation.
-* When you finish, commit your work on your forked repository, do not forget add JTejedor as reader/developer role and send a confirmation to the previous email.
-
+* When you finish, commit your work on your forked repository, do not forget add JTejedor (me) as reader/developer role and send a confirmation to the previous email.
 
 ## Recommendations:
 
 * We are working using Docker. Could you add a procedure to move your compiled solution to a docker container? It is not mandatory but it is a plus.
 * The project should use only C++ language, but of course, you might use any library of your choice. We recommend OpenCV to start.
-* Use GStreamer is a big plus.
+* Use GStreamer is a plus.
 * We are using CMake as automation tool to build.
 * The use of the C++17 standard, where applicable, will be appreciated.
 * Make it work, make it right, make it fast.
@@ -92,11 +88,11 @@ we can set up a meeting to explain in detail this evaluation.
 1. Download from s3 the video and write in ./video.
 2. Start docker compose in docker folder
 	```bash
-	$ docker-compose -f ./docker/docker-compose.yml up
+	$ make up
 	```
-3. You application could connect easily to our emulated camera on this rstp uri: ```rtsp://localhost:61250/cam01```
-4. Keep in mind, that there is already a second camera on rstp uri: ```rtsp://localhost:61250/cam01```
+3. You application could connect easily to our emulated camera on this rstp uri: ```rtsp://localhost:61250/rail_1_cam_2```
+4. Keep in mind, that there is already a second camera on rstp uri: ```rtsp://localhost:61250/rail_1_cam_2```
 3. Stop docker compose
 	 ```bash
-	 $ docker-compose -f ./docker/docker-compose.yml down
+	 $ make down
 	 ```
