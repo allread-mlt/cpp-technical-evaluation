@@ -90,8 +90,8 @@ we can set up a meeting to explain in detail this evaluation.
 	```bash
 	$ make up
 	```
-3. You application could connect easily to our emulated camera on this rstp uri: ```rtsp://localhost:61250/rail_1_cam_2```
-4. Keep in mind, that there is already a second camera on rstp uri: ```rtsp://localhost:61250/rail_1_cam_2```
+3. You application could connect easily to our emulated camera on this rstp uri: ```rtsp://localhost:8554/rail_1_cam_2```
+4. Keep in mind, that there is already a second camera on rstp uri: ```rtsp://localhost:8554/rail_1_cam_2```
 3. Stop docker compose
 	 ```bash
 	 $ make down
